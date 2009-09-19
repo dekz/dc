@@ -18,6 +18,7 @@ int main()
 {
 	load_data();
 	load_users();
+	
 	int socket_desc;
 	/*If acting as a master socket, it must be bound to a port number so that clients can know where to "find" 
 	the socket and connect to it. */
@@ -38,9 +39,22 @@ int main()
   	if (new_socket<0)
 		printf("Accepting Connections\n");
 	
+	printf("New socket is %d\n",new_socket);
+	
+	int bufsize=1024;        /* a 1K buffer */
+	char *buffer=malloc(bufsize);
+
+	recv(new_socket,buffer,bufsize,0);
+	
+	if (recv > 0)
+	{
+		printf("recieved something?\n");
+	}
 	
 	
 	sleep(20);
+	
+	close(socket_desc);
 	
 	exit(0);
 }

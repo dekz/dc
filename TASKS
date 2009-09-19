@@ -1,0 +1,12 @@
+Allows up to 30 clients to use the system at the same time
+Console Based
+Sockets and multithread techniques
+
+#TODO
+[#1] Implement skeleton
+[#1] Investigate socket API in C
+[#1] Either parse all data into memory or read when requested, dependant on file change frequency (doubtful if any)
+[#1] Implement client program
+[#1] Implement server program
+[#2] Store the frequency of queries about each player on server
+[#3] Authentication system, manually updated, access privledges

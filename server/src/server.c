@@ -35,6 +35,7 @@ int main()
 		printf("socket \n");
 	}
 	
+
 	memset(&dcserver, 0, sizeof(dcserver));
 	dcserver.sin_family = AF_INET;
 	dcserver.sin_addr.s_addr = INADDR_ANY;

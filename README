@@ -1,0 +1,13 @@
+TASK 1
+This task is to develop a client/server system for cricket funs to query the statistics about the bating figures for a cricket test between Australia and West Indies. The statistics about the test are stored in a text file, batting.txt, which should be stored in the server. The information stored in the text file includes Players’ Name, Country, Innings, Total Runs, Times Not Out, Highest Score, and Highest Score Was Not Out. 
+
+
+A user can use the client program to query about the information about a player. When a user enters a player’s name, the client program sends a request to the server and the server retrieves the information about the player and sends it back to the client program. The information about the player is then displayed on the client’s console. 
+
+TASK 2
+This task is to extend the server program so that it records and displays the total number of the queries about a player on the server side every time a query about the player is received by the server. 
+
+TASK 3
+This task is to add authentication to the client/server system. When the server receives a request from a client, the server needs to check if the client has been granted the access to the cricket test information by verifying the user’s username and password. If the user name entered by the user is found in an authentication file, authentication.txt, and the password entered by the user matches the corresponding password in the authorisation file, the server grants the access to the client and the user can query about the information about the players; otherwise, the server sends a message to the client indicating the user does not have the access to the system and then terminates the connection between the server and the client.
+
+To keep the task simple, you may assume that the authentication file has been created and it is managed manually, and that all the users that have been granted access to the system have been saved in the authentication file.

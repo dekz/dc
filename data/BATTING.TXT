@@ -1,0 +1,42 @@
+# Do not modify this file
+#
+# Comment lines start with a #
+#
+# These are the batting stats for the 2000/2001 test series
+# Australia vs West Indies
+#
+#
+# The names of the fields are
+# Name, Country, Innings, Total Runs, Times Not Out, Highest Score, Highest Score was not out
+#
+#NAME		COUNTRY	INNINGS	RUNS	N.OUT	H.SCORE	HS is NO
+#
+Adams		WI	10	151	2	49	FALSE
+Bichel		AUS	2	11	0	8	FALSE
+Black		WI	6	6	2	3	TRUE
+Campbell	WI	10	187	0	79	FALSE
+Chanderpaul	WI	2	80	1	62	TRUE
+Dillon		WI	8	73	0	27	FALSE
+Ganga		WI	8	107	0	32	FALSE
+Gilchrist	AUS	6	241	1	50	FALSE
+Gillespie	AUS	4	48	0	23	FALSE
+Hayden		AUS	8	236	0	69	FALSE
+Hinds		WI	8	247	0	70	FALSE
+Jacobs		WI	10	288	1	96	TRUE
+Langer		AUS	8	203	0	80	FALSE
+Lara		WI	10	321	0	182	FALSE
+Lee		AUS	2	103	2	62	TRUE
+MacGill		AUS	4	44	1	19	FALSE
+Martyn		AUS	2	80	2	46	TRUE
+McGrath		AUS	4	25	0	13	FALSE
+McLean		WI	10	64	0	17	FALSE
+Miller		AUS	4	78	1	37	TRUE
+Nagamootoo	WI	2	80	0	68	FALSE
+Ponting		AUS	8	242	1	92	FALSE
+Samuels		WI	6	172	1	60	TRUE
+Sarwan		WI	6	54	0	51	FALSE
+Slater		AUS	8	373	1	96	FALSE
+Stuart		WI	4	21	1	12	TRUE
+Walsh		WI	10	19	2	9	FALSE
+MWaugh		AUS	6	349	1	121	TRUE
+SWaugh		AUS	8	339	1	119	FALSE

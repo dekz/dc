@@ -7,3 +7,4 @@
 #include <netdb.h>
 
 #include "globals.h"
+#include "helpers.h"

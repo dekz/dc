@@ -1,15 +1,15 @@
 #ifndef _PLAYER_H_
 #define _PLAYER_H_
-#endif
+#include "bool.h"
 
-typedef struct Player
-{
-	char str[10] name;
-	char str[3] country;
+typedef struct  {
+	char name[10];
+	char country[3];
 	int innings;
 	int runs;
 	int nOut;
 	int hScore;
 	bool hisNo;
-	
 } Player;
+
+#endif

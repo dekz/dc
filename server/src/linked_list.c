@@ -1,4 +1,10 @@
+#include <stdio.h>
+#include <stdlib.h>
+
 #include "linked_list.h"
+#include "globals.h"
+#include "helpers.h"
+#include "string.h"
 
 
 bool *new_node(Player *player)
@@ -12,11 +18,12 @@ bool *new_node(Player *player)
 	
 	lock();
 	
-	node *current = _pl->head;
+	node *current = _pl.head;
 	
 	if (current == NULL)
 	{
 		_pl.head = new_node;
+		
 	} else {
 		while (current->next != NULL)
 		{
@@ -34,15 +41,15 @@ bool *new_node(Player *player)
 
 node *get_node(int num)
 {
-	
+	return 0;
 }
 
-node *get_node(char* name)
+node *get_node_name(char* name)
 {
-	
+	return 0;	
 }
 
 bool linked_list_contains(Player *player)
 {
-	
+	return 0;	
 }

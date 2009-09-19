@@ -1,13 +1,13 @@
 #ifndef LINKED_LIST_H
 #define LINKED_LIST_H
-#endif 
 
 #include <stdio.h>
 #include <stdlib.h>
 
 #include "bool.h"
 #include "player.h"
-#include "string.h"
+
+
 
 typedef struct node {
 	Player *player;
@@ -21,5 +21,7 @@ typedef struct LinkedList {
 
 bool *new_node();
 node *get_node(int num);
-node *get_node(char* name);
+node *get_node_name(char* name);
 bool linked_list_contains(Player *player);
+
+#endif 

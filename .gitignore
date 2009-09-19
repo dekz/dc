@@ -1,5 +1,7 @@
 *.out
 bin/*
+client/bin/*
+server/bin/*
  
 # xcode noise
 build/*

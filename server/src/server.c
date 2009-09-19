@@ -27,7 +27,8 @@ int main()
 	struct sockaddr_in dcserver;
 	struct sockaddr_in dcclient;
 	char buf[100];
-	printf("socket \n");
+	char *message = "SEND MESSAGE A";
+	printf("Creating Socket...\n");
 	
 	if ((dcsocket = socket(AF_INET, SOCK_STREAM, 0)) == -1)
 	{
@@ -39,15 +40,13 @@ int main()
 	dcserver.sin_addr.s_addr = INADDR_ANY;
 	dcserver.sin_port = htons(7000);
 	
-	printf("bind\n");
-
 	/* bind the socket to the port number */
 	if (bind(dcsocket, (struct sockaddr *) &dcserver, sizeof(dcserver)) == -1) {
 		perror("bind");
 		exit(1);
 	}
 
-	printf("listen\n");
+	printf("Waiting for connections...\n");
 	if (listen(dcsocket, 5) == -1)
 	{
 		printf("listen\n");
@@ -55,32 +54,35 @@ int main()
 	}
 	
 	addrlen = sizeof(dcclient);
-	printf("accept\n");
+	printf("Accepting Connections...\n");
 	if ((socket_current = accept(dcsocket, (struct sockaddr *) &dcclient, &addrlen)) == -1)
 	{
 		printf("accept\n");
 			exit(1);
 	}
-	
-//	printf("Connection from  %s#\n",inet_ntoa(dcclient.sin_addr));
-//	printf("Coming from port %d\n",ntohs(dcclient.sin_port));
-	
-	printf("recv\n");
+
+
 	if (recv(socket_current, buf, sizeof(buf), 0) == -1)
 	{
 		printf("recv\n");
 		exit(1);
 	}
-		printf("send\n");
-	if (send(socket_current, buf, strlen(buf), 0) == -1)
+
+
+	printf("Recieved Message: %s\n", buf);
+	
+	printf("Sending message %s\n", message);
+	
+	if (send(socket_current, message, strlen(message), 0) == -1)
 	{
 		printf("send\n");
 		exit(1);
 	}
 
-	
+
 	close(socket_current);
 	close(dcserver);
+	close(dcclient);
 	
 	exit(0);
 }

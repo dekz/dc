@@ -2,6 +2,8 @@
 bin/*
 client/bin/*
 server/bin/*
+server/build/*
+client/build/*
  
 # xcode noise
 build/*

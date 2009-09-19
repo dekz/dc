@@ -4,20 +4,29 @@
 int main()
 {
 	int client_socket;
-	client_socket = socket(AF_INET, SOCK_STREAM, 0);
-	struct sockaddr_in address;
 	char *message="TEST\n\r";
+	struct sockaddr_in dcserver;
+	struct sockaddr_in dcclient;
+	struct hostent *hp;
+	char buf[100]; 
 	
-
-	address.sin_family = AF_INET;
-	address.sin_port = htons(7000);
+	client_socket = socket(AF_INET, SOCK_STREAM, 0);
+	
+	bzero((char *) &dcserver, sizeof(dcserver));
+	
+	dcserver.sin_family = AF_INET;
+	dcserver.sin_port = htons(7000);
 	//proper way to attach address?
-	
-	connect(client_socket, &address, sizeof(address));
 
-	sleep(10);
-	printf("trying to send %s\n", message);
-	send(client_socket,message,strlen(message),0);
+	sleep(10);	
+	connect(client_socket, &dcserver, sizeof(dcserver));
+	
+	write(client_socket, message, sizeof(message));
+	
+	bzero(buf, sizeof(buf));
+	read(client_socket, buf, 100);
+	printf("C: %s\n", buf);
+
 	
 	close(client_socket);
 

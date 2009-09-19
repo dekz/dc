@@ -20,52 +20,67 @@ int main()
 {
 	load_data();
 	load_users();
-	
-	int socket_desc;
-	int reader;
-	char buf[100];
-	char data[10] = "TEST LOL";
-	
-	socket_desc=socket(AF_INET,SOCK_STREAM,0); //TCP
-	struct sockaddr_in address;
-	address.sin_addr.s_addr = INADDR_ANY;
-	address.sin_port = htons(7000);
-	
-	
-	bind(socket_desc,(struct sockaddr *)&address,sizeof(address));
-		
-	listen(socket_desc,30); //ammount of connections
-	printf("trying to run\n");
-	
+
+	int dcsocket;
 	int addrlen;
-	addrlen = sizeof(struct sockaddr_in);
-	int new_socket;
-	new_socket = accept(socket_desc, (struct sockaddr *)&address, &addrlen);
-  	if (new_socket<0)
-		printf("Accepting Connections\n");
+	int socket_current;
+	struct sockaddr_in dcserver;
+	struct sockaddr_in dcclient;
+	char buf[100];
+	printf("socket \n");
 	
-	printf("New socket is %d\n",new_socket);
-
-	do {   /* Read from client until it's closed the connection. */
-	            /* Prepare read buffer and read. */
-	            bzero(buf, sizeof(buf));
-	            if ((reader = read(socket_desc, buf, 100)) < 0)
-	               printf("Reading stream message\n");
-
-	            if (reader == 0)   /* Client has closed the connection */
-	               printf("Ending connection\n");
-	            else
-	               printf("S: %s\n", buf);
-
-	            /* Write back to client. */
-	            if (write(socket_desc, data, sizeof(data)) < 0)
-	               printf("Writing on stream socket\n");
-
-	         } while (reader != 0);
-
-	sleep(20);
+	if ((dcsocket = socket(AF_INET, SOCK_STREAM, 0)) == -1)
+	{
+		printf("socket \n");
+	}
 	
-	close(socket_desc);
+	memset(&dcserver, 0, sizeof(dcserver));
+	dcserver.sin_family = AF_INET;
+	dcserver.sin_addr.s_addr = INADDR_ANY;
+	dcserver.sin_port = htons(7000);
+	
+	printf("bind\n");
+
+	/* bind the socket to the port number */
+	if (bind(dcsocket, (struct sockaddr *) &dcserver, sizeof(dcserver)) == -1) {
+		perror("bind");
+		exit(1);
+	}
+
+	printf("listen\n");
+	if (listen(dcsocket, 5) == -1)
+	{
+		printf("listen\n");
+		exit(1);
+	}
+	
+	addrlen = sizeof(dcclient);
+	printf("accept\n");
+	if ((socket_current = accept(dcsocket, (struct sockaddr *) &dcclient, &addrlen)) == -1)
+	{
+		printf("accept\n");
+			exit(1);
+	}
+	
+//	printf("Connection from  %s#\n",inet_ntoa(dcclient.sin_addr));
+//	printf("Coming from port %d\n",ntohs(dcclient.sin_port));
+	
+	printf("recv\n");
+	if (recv(socket_current, buf, sizeof(buf), 0) == -1)
+	{
+		printf("recv\n");
+		exit(1);
+	}
+		printf("send\n");
+	if (send(socket_current, buf, strlen(buf), 0) == -1)
+	{
+		printf("send\n");
+		exit(1);
+	}
+
+	
+	close(socket_current);
+	close(dcserver);
 	
 	exit(0);
 }

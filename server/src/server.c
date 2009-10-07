@@ -62,7 +62,6 @@ int main()
 			exit(1);
 	}
 
-
 	if (recv(socket_current, buf, sizeof(buf), 0) == -1)
 	{
 		printf("recv\n");

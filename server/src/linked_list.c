@@ -18,11 +18,11 @@ bool *new_node(Player *player)
 	
 	lock();
 	
-	node *current = _pl.head;
+	node *current = g_pl.head;
 	
 	if (current == NULL)
 	{
-		_pl.head = new_node;
+		g_pl.head = new_node;
 		
 	} else {
 		while (current->next != NULL)
@@ -32,7 +32,7 @@ bool *new_node(Player *player)
 		current->next = new_node;
 	}
 	
-	_pl.size++;
+	g_pl.size++;
 	
 	unlock();
 	

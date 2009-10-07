@@ -12,4 +12,6 @@ typedef struct  {
 	bool hisNo;
 } Player;
 
+
+void* new_player();
 #endif

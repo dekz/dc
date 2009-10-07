@@ -64,3 +64,25 @@ int main()
 
 	exit(0);
 }
+
+int sendmessage(int sockfd, char *msg)
+{
+	
+	if (send(sockfd, msg, strlen(msg), 0) == -1)
+	{
+		perror("send");
+		exit(1);
+	}
+}
+
+int receivemessage(int sockfd, char *buf)
+{
+	if (recv(sockfd, buf, sizeof(buf), 0) == -1)
+	{
+		perror("recv");
+		exit(1);
+	}
+	
+	printf("%s\n", buf);
+	
+}

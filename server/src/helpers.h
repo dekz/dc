@@ -1,6 +1,7 @@
 #ifndef HELPERS_H
 #define HELPERS_H
 //#include "linked_list.h"
+#include <stdio.h>
 #include "globals.h"
 
 

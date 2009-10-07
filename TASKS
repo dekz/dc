@@ -1,6 +1,9 @@
 Allows up to 30 clients to use the system at the same time
 Console Based
 Sockets and multithread techniques
+Threads in send and receive
+Thread for monitor of connections?
+Buffer queue for multiple connections messages simultaneously?
 
 #TODO
 [#1] Implement skeleton - DONE

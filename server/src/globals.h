@@ -10,6 +10,6 @@
 pthread_mutex_t mutex;
 
 bool g_keep_running;
-LinkedList _pl;
+LinkedList g_pl;
 
 #endif

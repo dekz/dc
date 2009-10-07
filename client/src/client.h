@@ -8,3 +8,6 @@
 
 #include "globals.h"
 #include "helpers.h"
+
+int sendmessage(int sockfd, char *msg);
+int receivemessage(int sockfd);

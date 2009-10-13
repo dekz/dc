@@ -10,4 +10,4 @@
 #include "helpers.h"
 
 int sendmessage(int sockfd, char *msg);
-int receivemessage(int sockfd);
+int receivemessage(int sockfd, char *buf);

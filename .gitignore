@@ -2,6 +2,7 @@
 bin/*
 server/build/*
 client/build/*
+*.xcodeproj/*.tm_build_errors
 
 # xcode noise
 build/*

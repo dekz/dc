@@ -5,16 +5,14 @@ COMMAND=$(CC) $(CFLAGS)
 SRC=src/*.c
 BIN=build/dc
 
-all: compile run
-
-compile: clean build_dir
+all: clean build_dir
 	$(COMMAND) -o $(BIN) $(SRC)
 
 run:
 	$(BIN)
 
 build_dir:
-	mkdir build
+	mkdir -p build
 
 clean:
 	rm -rf build

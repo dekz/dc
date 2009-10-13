@@ -6,27 +6,6 @@
 	objectVersion = 45;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		6C54DDDA10847BC300D77B03 /* bool.h in Sources */ = {isa = PBXBuildFile; fileRef = 6C54DDAF10847B4100D77B03 /* bool.h */; };
-		6C54DDDB10847BC300D77B03 /* globals.h in Sources */ = {isa = PBXBuildFile; fileRef = 6C54DDB010847B4100D77B03 /* globals.h */; };
-		6C54DDDC10847BC300D77B03 /* helpers.c in Sources */ = {isa = PBXBuildFile; fileRef = 6C54DDB110847B4100D77B03 /* helpers.c */; };
-		6C54DDDD10847BC300D77B03 /* helpers.h in Sources */ = {isa = PBXBuildFile; fileRef = 6C54DDB210847B4100D77B03 /* helpers.h */; };
-		6C54DDDE10847BC300D77B03 /* linked_list.c in Sources */ = {isa = PBXBuildFile; fileRef = 6C54DDB310847B4100D77B03 /* linked_list.c */; };
-		6C54DDDF10847BC300D77B03 /* linked_list.h in Sources */ = {isa = PBXBuildFile; fileRef = 6C54DDB410847B4100D77B03 /* linked_list.h */; };
-		6C54DDE010847BC300D77B03 /* player.c in Sources */ = {isa = PBXBuildFile; fileRef = 6C54DDB510847B4100D77B03 /* player.c */; };
-		6C54DDE110847BC300D77B03 /* player.h in Sources */ = {isa = PBXBuildFile; fileRef = 6C54DDB610847B4100D77B03 /* player.h */; };
-		6C54DDE210847BC300D77B03 /* server.c in Sources */ = {isa = PBXBuildFile; fileRef = 6C54DDB710847B4100D77B03 /* server.c */; };
-		6C54DDE310847BC300D77B03 /* server.h in Sources */ = {isa = PBXBuildFile; fileRef = 6C54DDB810847B4100D77B03 /* server.h */; };
-		6C54DDE410847BC300D77B03 /* threads.c in Sources */ = {isa = PBXBuildFile; fileRef = 6C54DDB910847B4100D77B03 /* threads.c */; };
-		6C54DDE510847BC300D77B03 /* threads.h in Sources */ = {isa = PBXBuildFile; fileRef = 6C54DDBA10847B4100D77B03 /* threads.h */; };
-		6C54DDFA10847C8200D77B03 /* bool.h in Sources */ = {isa = PBXBuildFile; fileRef = 6C54DDA710847B3500D77B03 /* bool.h */; };
-		6C54DDFB10847C8200D77B03 /* client.c in Sources */ = {isa = PBXBuildFile; fileRef = 6C54DDA810847B3500D77B03 /* client.c */; };
-		6C54DDFC10847C8200D77B03 /* client.h in Sources */ = {isa = PBXBuildFile; fileRef = 6C54DDA910847B3500D77B03 /* client.h */; };
-		6C54DDFD10847C8200D77B03 /* globals.h in Sources */ = {isa = PBXBuildFile; fileRef = 6C54DDAA10847B3500D77B03 /* globals.h */; };
-		6C54DDFE10847C8200D77B03 /* helpers.c in Sources */ = {isa = PBXBuildFile; fileRef = 6C54DDAB10847B3500D77B03 /* helpers.c */; };
-		6C54DDFF10847C8200D77B03 /* helpers.h in Sources */ = {isa = PBXBuildFile; fileRef = 6C54DDAC10847B3500D77B03 /* helpers.h */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXFileReference section */
 		6C54DDA710847B3500D77B03 /* bool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bool.h; path = client/src/bool.h; sourceTree = "<group>"; };
 		6C54DDA810847B3500D77B03 /* client.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = client.c; path = client/src/client.c; sourceTree = "<group>"; };
@@ -46,26 +25,7 @@
 		6C54DDB810847B4100D77B03 /* server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = server.h; path = server/src/server.h; sourceTree = "<group>"; };
 		6C54DDB910847B4100D77B03 /* threads.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = threads.c; path = server/src/threads.c; sourceTree = "<group>"; };
 		6C54DDBA10847B4100D77B03 /* threads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = threads.h; path = server/src/threads.h; sourceTree = "<group>"; };
-		6C54DDC410847B6000D77B03 /* dc */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = dc; path = /Users/bjeanes/Code/dc/build/Debug/dc; sourceTree = "<absolute>"; };
-		6C54DDC910847B8F00D77B03 /* server */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = server; path = /Users/bjeanes/Code/dc/build/Debug/server; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		6C54DDC710847B8F00D77B03 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8DD76FAD0486AB0100D96B5E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		08FB7794FE84155DC02AAC07 /* dc */ = {
@@ -119,41 +79,22 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXNativeTarget section */
-		6C54DDC810847B8F00D77B03 /* server */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6C54DDCD10847B9900D77B03 /* Build configuration list for PBXNativeTarget "server" */;
+/* Begin PBXLegacyTarget section */
+		6C54DE2A10847F8700D77B03 /* dc */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = $ACTION;
+			buildConfigurationList = 6C54DE2D10847FA500D77B03 /* Build configuration list for PBXLegacyTarget "dc" */;
 			buildPhases = (
-				6C54DDC610847B8F00D77B03 /* Sources */,
-				6C54DDC710847B8F00D77B03 /* Frameworks */,
 			);
-			buildRules = (
-			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = /Users/bjeanes/Code/dc;
 			dependencies = (
 			);
-			name = server;
-			productName = server;
-			productReference = 6C54DDC910847B8F00D77B03 /* server */;
-			productType = "com.apple.product-type.tool";
-		};
-		8DD76FA90486AB0100D96B5E /* client */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1DEB928508733DD80010E9CD /* Build configuration list for PBXNativeTarget "client" */;
-			buildPhases = (
-				8DD76FAB0486AB0100D96B5E /* Sources */,
-				8DD76FAD0486AB0100D96B5E /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = client;
-			productInstallPath = "$(HOME)/bin";
+			name = dc;
+			passBuildSettingsInEnvironment = 1;
 			productName = dc;
-			productReference = 6C54DDC410847B6000D77B03 /* dc */;
-			productType = "com.apple.product-type.tool";
 		};
-/* End PBXNativeTarget section */
+/* End PBXLegacyTarget section */
 
 /* Begin PBXProject section */
 		08FB7793FE84155DC02AAC07 /* Project object */ = {
@@ -165,74 +106,12 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8DD76FA90486AB0100D96B5E /* client */,
-				6C54DDC810847B8F00D77B03 /* server */,
+				6C54DE2A10847F8700D77B03 /* dc */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXSourcesBuildPhase section */
-		6C54DDC610847B8F00D77B03 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6C54DDDA10847BC300D77B03 /* bool.h in Sources */,
-				6C54DDDB10847BC300D77B03 /* globals.h in Sources */,
-				6C54DDDC10847BC300D77B03 /* helpers.c in Sources */,
-				6C54DDDD10847BC300D77B03 /* helpers.h in Sources */,
-				6C54DDDE10847BC300D77B03 /* linked_list.c in Sources */,
-				6C54DDDF10847BC300D77B03 /* linked_list.h in Sources */,
-				6C54DDE010847BC300D77B03 /* player.c in Sources */,
-				6C54DDE110847BC300D77B03 /* player.h in Sources */,
-				6C54DDE210847BC300D77B03 /* server.c in Sources */,
-				6C54DDE310847BC300D77B03 /* server.h in Sources */,
-				6C54DDE410847BC300D77B03 /* threads.c in Sources */,
-				6C54DDE510847BC300D77B03 /* threads.h in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8DD76FAB0486AB0100D96B5E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6C54DDFA10847C8200D77B03 /* bool.h in Sources */,
-				6C54DDFB10847C8200D77B03 /* client.c in Sources */,
-				6C54DDFC10847C8200D77B03 /* client.h in Sources */,
-				6C54DDFD10847C8200D77B03 /* globals.h in Sources */,
-				6C54DDFE10847C8200D77B03 /* helpers.c in Sources */,
-				6C54DDFF10847C8200D77B03 /* helpers.h in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
 /* Begin XCBuildConfiguration section */
-		1DEB928608733DD80010E9CD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				INSTALL_PATH = /usr/local/bin;
-				PRODUCT_NAME = dc;
-			};
-			name = Debug;
-		};
-		1DEB928708733DD80010E9CD /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_MODEL_TUNING = G5;
-				INSTALL_PATH = /usr/local/bin;
-				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_NAME = dc;
-			};
-			name = Release;
-		};
 		1DEB928A08733DD80010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -243,7 +122,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx10.5;
 			};
 			name = Debug;
 		};
@@ -255,36 +134,27 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx10.5;
 			};
 			name = Release;
 		};
-		6C54DDCB10847B8F00D77B03 /* Debug */ = {
+		6C54DE2B10847F8700D77B03 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				INSTALL_PATH = /usr/local/bin;
-				PREBINDING = NO;
-				PRODUCT_NAME = server;
+				PRODUCT_NAME = dc;
 			};
 			name = Debug;
 		};
-		6C54DDCC10847B8F00D77B03 /* Release */ = {
+		6C54DE2C10847F8700D77B03 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_MODEL_TUNING = G5;
-				INSTALL_PATH = /usr/local/bin;
-				PREBINDING = NO;
-				PRODUCT_NAME = server;
+				PRODUCT_NAME = dc;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -292,15 +162,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DEB928508733DD80010E9CD /* Build configuration list for PBXNativeTarget "client" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1DEB928608733DD80010E9CD /* Debug */,
-				1DEB928708733DD80010E9CD /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "dc" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -310,11 +171,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6C54DDCD10847B9900D77B03 /* Build configuration list for PBXNativeTarget "server" */ = {
+		6C54DE2D10847FA500D77B03 /* Build configuration list for PBXLegacyTarget "dc" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6C54DDCB10847B8F00D77B03 /* Debug */,
-				6C54DDCC10847B8F00D77B03 /* Release */,
+				6C54DE2B10847F8700D77B03 /* Debug */,
+				6C54DE2C10847F8700D77B03 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

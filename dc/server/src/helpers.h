@@ -14,5 +14,5 @@ bool load_data();
 bool load_users();
 Player *getPlayer(char *name);
 char *getPlayerInfo(char *name);
-
+bool *authenticate(char *name, char *pw);
 #endif

@@ -15,5 +15,5 @@ typedef struct  {
 } Player;
 
 
-void* new_player();
+Player* new_player();
 #endif

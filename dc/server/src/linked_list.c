@@ -6,7 +6,7 @@
 #include "helpers.h"
 #include "string.h"
 
-
+//adding a new batting player to the linked list
 bool *new_node(Player *player)
 {
 	if (player == NULL) return FALSE;
@@ -39,17 +39,58 @@ bool *new_node(Player *player)
 	return TRUE;
 }
 
-node *get_node(int num)
+//adding a new user to our user linked list
+bool *new_user_node(user *a_user)
 {
-	return 0;
+	if (a_user == NULL) return FALSE;
+	
+	userNode *new_node = malloc(sizeof(userNode));
+	
+	new_node->u = a_user;
+	new_node->next = NULL;
+	
+	lock();
+	
+	userNode *current = g_ul.head;
+	
+	if (current == NULL)
+	{
+		g_ul.head = new_node;
+		
+	} else {
+		while (current->next != NULL)
+		{
+			current = current->next;
+		}
+		current->next = new_node;
+	}
+	
+	g_ul.size++;
+	
+	unlock();
+	
+	return TRUE;
 }
 
-node *get_node_name(char* name)
+user *new_user()
 {
-	return 0;	
+	user *u = malloc(sizeof(user));
+	return u;
 }
 
-bool linked_list_contains(Player *player)
+user *getUser(char *name)
 {
-	return 0;	
+	userNode *n = g_ul.head;	
+	for (int i = 0; i < g_ul.size; i++) 
+	{
+		if (!strcmp(name, n->u->name)) 
+		{
+			return n->u;
+		}
+		else
+		{
+			n = n->next; //check later for NULLS TODO
+		}
+	}
+	
 }

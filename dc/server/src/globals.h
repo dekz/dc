@@ -11,5 +11,5 @@ pthread_mutex_t mutex;
 
 bool g_keep_running;
 LinkedList g_pl;
-
+UserLinkedList g_ul;
 #endif

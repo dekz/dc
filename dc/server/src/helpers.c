@@ -197,6 +197,7 @@ Player *getPlayer(char *name)
 			n = n->next; //check later for NULLS TODO
 		}
 	}
+	return 0;
 }
 
 char *getPlayerInfo(char *name)
@@ -215,7 +216,7 @@ char *getPlayerInfo(char *name)
 	} else {
 		printf("No such player\n");
 	}
-	
+	return 0;
 }
 
 

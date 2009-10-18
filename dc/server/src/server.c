@@ -26,8 +26,8 @@ int main()
 	int socket_current;
 	struct sockaddr_in dcserver;
 	struct sockaddr_in dcclient;
-	char buf[100];
-	char *message = "SEND MESSAGE A";
+	char buf[128];
+	//char *message = "SEND MESSAGE A";
 	printf("Creating Socket...\n");
 	
 	if ((dcsocket = socket(AF_INET, SOCK_STREAM, 0)) == -1)
@@ -39,7 +39,7 @@ int main()
 	memset(&dcserver, 0, sizeof(dcserver));
 	dcserver.sin_family = AF_INET;
 	dcserver.sin_addr.s_addr = INADDR_ANY;
-	dcserver.sin_port = htons(7000);
+	dcserver.sin_port = htons(8000);
 	
 	/* bind the socket to the port number */
 	if (bind(dcsocket, (struct sockaddr *) &dcserver, sizeof(dcserver)) == -1) {
@@ -71,8 +71,12 @@ int main()
 		//we have received something
 		//this is just a prototype
 		//might write a helper to get first word for the command
-		//char* cmd = getCommand(buf);
-		//processCommand(cmd);
+			printf("receiving a message \n");
+			char *returnString;
+			returnString = processCommand(buf);
+			printf("processing \n");
+			send(socket_current, returnString, strlen(returnString), 0);
+			printf("returning\n");
 			n = recv(socket_current, buf, sizeof(buf), 0); //get more commands
 		
 		}

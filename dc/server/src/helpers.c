@@ -205,7 +205,7 @@ char *getPlayerInfo(char *name)
 	Player* pl;
 	static char* plInfo[128];
 	pl = getPlayer(name);
-	if (pl != NULL)
+	if (pl != 0)
 	{
 		pl->queryCount++;
 		//attach player details to the string
@@ -213,9 +213,7 @@ char *getPlayerInfo(char *name)
 		sprintf(plInfo, "%s %s %d %d %d %d", pl->name, pl->country, pl->innings, pl->runs,pl->nOut,pl->hScore);
 		return plInfo;
 		
-	} else {
-		printf("No such player\n");
-	}
+	} 
 	return 0;
 }
 
@@ -231,4 +229,38 @@ bool *authenticate(char *name, char *pw)
 		}
 	}
 	return 0;
+}
+
+/*char *getCommand(char* buf)
+{
+	int size = strlen(buf);
+	static char command[20];
+	for (int i = 0; i < size; i++) {
+		if (buf[i] != ' ') {
+			command[i] = buf[i];
+		}
+		else 
+		{
+			return command;
+		}
+	}
+	return 0;
+}*/
+
+char *processCommand(char* buf)
+{
+	//char *command = getCommand(buf); //was going to be used if there was commands like add delete
+	//int size = strlen(command);
+	static char *playerInfo;
+	playerInfo = getPlayerInfo(buf);
+	if (playerInfo != NULL)
+	{
+		return playerInfo;
+		
+	} else 
+	{
+		playerInfo = "No Such player";
+		return playerInfo;
+	}
+	
 }

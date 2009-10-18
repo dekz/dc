@@ -15,4 +15,6 @@ bool load_users();
 Player *getPlayer(char *name);
 char *getPlayerInfo(char *name);
 bool *authenticate(char *name, char *pw);
+char *getCommand(char* buf);
+char *processCommand(char* buf);
 #endif

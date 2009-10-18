@@ -259,7 +259,7 @@ char *processCommand(char* buf)
 		
 	} else 
 	{
-		playerInfo = "No Such player";
+		playerInfo = "No Such player\n";
 		return playerInfo;
 	}
 	

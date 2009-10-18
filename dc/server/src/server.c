@@ -62,7 +62,26 @@ int main()
 			exit(1);
 	}
 
-	if (recv(socket_current, buf, sizeof(buf), 0) == -1)
+	int n = 0; 
+	
+	while (1) {
+		n = recv(socket_current, buf, sizeof(buf), 0);
+		
+		while (n > 0) {
+		//we have received something
+		//this is just a prototype
+		//might write a helper to get first word for the command
+		//char* cmd = getCommand(buf);
+		//processCommand(cmd);
+			n = recv(socket_current, buf, sizeof(buf), 0); //get more commands
+		
+		}
+		//getServerInput();
+	}
+	
+	
+	
+	/*if (recv(socket_current, buf, sizeof(buf), 0) == -1)
 	{
 		printf("recv\n");
 		exit(1);
@@ -77,7 +96,7 @@ int main()
 	{
 		printf("send\n");
 		exit(1);
-	}
+	}*/
 
 
 	close(socket_current);

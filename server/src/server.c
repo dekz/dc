@@ -173,8 +173,8 @@ int main()
 
 
 	close(socket_current);
-	close(dcserver);
-	close(dcclient);
+  // close(dcserver);
+  // close(dcclient);
 	
 	exit(0);
 }

@@ -6,6 +6,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <netdb.h>
+#include <unistd.h>
 
 #include "globals.h"
 #include "helpers.h"

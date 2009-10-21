@@ -57,7 +57,6 @@ int main()
 	printf("%s\n", buf);
 	
 	close(dcsocket);
-	close(dcserver);
 
 	exit(0);
 }

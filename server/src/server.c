@@ -29,7 +29,7 @@ int main()
 	struct sockaddr_in dcclient;
 	char buf[128];
 	int master_socket;
-	int loop, loop2;
+	int loop;
 	int client_socket[30];
 	int max_clients=30;
 	fd_set readfds;

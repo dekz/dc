@@ -1,5 +1,8 @@
 #ifndef _PLAYER_H_
 #define _PLAYER_H_
+
+#include <stdio.h>
+#include <stdlib.h>
 #include "../../shared/src/bool.h"
 
 

@@ -17,8 +17,6 @@ void unlock()
 
 bool load_data()
 {
-	
-	FILE *fp;
 	char *mode = "r";
 	char filename[] = "BATTING.TXT";
 	char input[128]; //buffer for input data
@@ -108,7 +106,6 @@ bool load_data()
 
 bool load_users()
 {
-	FILE *fp;
 	char *mode = "r";
 	char filename[] = "USERS.TXT";
 	char input[128]; //buffer for input data
@@ -218,17 +215,17 @@ char *getPlayerInfo(char *name)
 }
 
 
-bool *authenticate(char *name, char *pw)
+bool authenticate(char *name, char *pw)
 {
 	user *u;
-	if (u = getUser(name))
+	if ((u = getUser(name)))
 	{
 		if (!strcmp(u->pw, pw))
 		{
-			return 1;
+			return FALSE;
 		}
 	}
-	return 0;
+	return TRUE;
 }
 
 /*char *getCommand(char* buf)

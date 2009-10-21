@@ -2,6 +2,8 @@
 #define HELPERS_H
 //#include "linked_list.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "globals.h"
 #include "player.h"
 
@@ -14,7 +16,7 @@ bool load_data();
 bool load_users();
 Player *getPlayer(char *name);
 char *getPlayerInfo(char *name);
-bool *authenticate(char *name, char *pw);
+bool authenticate(char *name, char *pw);
 char *getCommand(char* buf);
 char *processCommand(char* buf);
 #endif

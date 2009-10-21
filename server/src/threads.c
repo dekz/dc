@@ -1,4 +1,6 @@
+#include "threads.h"
+
 void *monitor(void *arg)
 {
-	printf("Montior starting");
+	printf("Monitor starting");
 }

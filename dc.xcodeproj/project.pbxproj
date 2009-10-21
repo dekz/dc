@@ -27,7 +27,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		272388A110870C7A0051C9EF /* dc */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = dc; path = build/Debug/dc; sourceTree = "<group>"; };
+		272388A110870C7A0051C9EF /* dc */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = dc; sourceTree = BUILT_PRODUCTS_DIR; };
 		275100001085B0A6007F4E2B /* player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = player.h; path = server/src/player.h; sourceTree = SOURCE_ROOT; };
 		275100011085B0A6007F4E2B /* server.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = server.c; path = server/src/server.c; sourceTree = SOURCE_ROOT; };
 		275100021085B0A6007F4E2B /* server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = server.h; path = server/src/server.h; sourceTree = SOURCE_ROOT; };

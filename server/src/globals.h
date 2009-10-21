@@ -2,7 +2,7 @@
 #define GLOBALS_H
 
 #include <pthread.h>
-#include "bool.h"
+#include "../../shared/src/bool.h"
 #include "server.h"
 #include "player.h"
 #include "linked_list.h"

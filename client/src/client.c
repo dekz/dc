@@ -1,5 +1,4 @@
 #include "client.h"
-#define HOST "localhost"
 
 int main()
 {
@@ -57,22 +56,20 @@ int main()
 	}
 	printf("%s\n", buf);
 	
-	
 	close(dcsocket);
 	close(dcserver);
-
 
 	exit(0);
 }
 
 int sendmessage(int sockfd, char *msg)
 {
-	
 	if (send(sockfd, msg, strlen(msg), 0) == -1)
 	{
 		perror("send");
 		exit(1);
 	}
+  return 0;
 }
 
 int receivemessage(int sockfd, char *buf)
@@ -84,5 +81,5 @@ int receivemessage(int sockfd, char *buf)
 	}
 	
 	printf("%s\n", buf);
-	
+  return 0;
 }

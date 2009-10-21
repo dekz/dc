@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "bool.h"
+#include "../../shared/src/bool.h"
 #include "player.h"
 
 

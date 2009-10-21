@@ -1,6 +1,6 @@
 #ifndef _PLAYER_H_
 #define _PLAYER_H_
-#include "bool.h"
+#include "../../shared/src/bool.h"
 
 
 typedef struct  {

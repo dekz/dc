@@ -1,7 +1,7 @@
 #ifndef GLOBALS_H
 #define GLOBALS_H
 
-#include "bool.h"
+#include "../../shared/src/bool.h"
 #include "client.h"
 
 #endif

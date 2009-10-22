@@ -1,6 +1,7 @@
 #include "server.h"
 #include "data.h"
 #include "authentication.h"
+#include "shared.h"
 
 /*
 socket() create a new socket and return its descriptor
@@ -146,7 +147,8 @@ int main()
           buf[n] = 0;
           char *returnString;
           returnString = processCommand(buf);
-          send(client_socket[loop], returnString, strlen(returnString), 0);
+          printf(returnString);
+          send(client_socket[loop], returnString, PLAYER_INFO_LENGTH, 0);
           returnString = 0;
         }
       }

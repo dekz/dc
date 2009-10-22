@@ -1,19 +1,21 @@
 #include "client.h"
 
+#define MAX_MESSAGE_SIZE 20
+
 int socket_start()
 {
     int sock;
     struct sockaddr_in server;
     struct hostent *hp;
 
-    printf("Attempting to get hostname...\n");
+    debug("Attempting to get hostname...");
     if ((hp = gethostbyname(HOST)) == 0)
     {
       perror("get host name");
       exit(1);
     }
 
-    printf("Got hostname.\n");
+    debug("Got hostname.");
 
     /*
      * copy the network address part of the structure to the 
@@ -41,11 +43,22 @@ int socket_start()
 
 int main()
 {
-  char *message = "Mille";
+  char message[MAX_MESSAGE_SIZE];
   char buffer[PLAYER_INFO_LENGTH];
   int socket;
   
   welcome_message();
+  
+  printf("What player would you like to look up? ");
+  if(fgets(message, MAX_MESSAGE_SIZE, stdin) == NULL)
+  {
+    perror("fgets");
+    return 1;
+  }
+  
+  chomp(message);
+  
+  printf("Looking up '%s'\n", message);
  
   // while(1) 
   // {

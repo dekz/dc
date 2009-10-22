@@ -6,6 +6,7 @@
 #include "shared.h"
 
 void welcome_message();
-void establish_connection();
+int chomp(char *string);
+void debug(char *message);
 
 #endif

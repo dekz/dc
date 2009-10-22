@@ -11,7 +11,7 @@
 #include "shared.h"
 #include "helpers.h"
 
-#define HOST        "localhost"
+#define HOST  "localhost"
 
 int send_message(int sockfd, char *msg);
 int receive_message(int sockfd, char *buf);

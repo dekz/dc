@@ -18,7 +18,7 @@ void unlock()
 bool load_data()
 {
 	char *mode = "r";
-	char filename[] = "BATTING.TXT";
+	char filename[] = DATA_FILE;
 	char input[128]; //buffer for input data
 	char buffer[25];
 	FILE* file;
@@ -107,7 +107,7 @@ bool load_data()
 bool load_users()
 {
 	char *mode = "r";
-	char filename[] = "USERS.TXT";
+	char filename[] = USERS_FILE;
 	char input[128]; //buffer for input data
 	char buffer[25];
 	FILE* file;

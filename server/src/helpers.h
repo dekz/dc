@@ -1,5 +1,8 @@
 #ifndef HELPERS_H
 #define HELPERS_H
+#define USERS_FILE "../data/USERS.txt"
+#define DATA_FILE  "../data/BATTING.txt"
+
 //#include "linked_list.h"
 #include <stdio.h>
 #include <stdlib.h>

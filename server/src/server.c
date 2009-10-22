@@ -68,7 +68,7 @@ int main()
   memset(&dcserver, 0, sizeof(dcserver));
   dcserver.sin_family = AF_INET;
   dcserver.sin_addr.s_addr = INADDR_ANY;
-  dcserver.sin_port = htons(8000);
+  dcserver.sin_port = PORT;
   
     
   

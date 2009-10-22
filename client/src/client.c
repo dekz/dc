@@ -28,7 +28,7 @@ int main()
   printf("Setting up server struct...\n");
   dcserver.sin_family = AF_INET;
 //  dcserver.sin_addr.s_addr = ((struct in_addr *)(hp->h_addr))->s_addr;
-  dcserver.sin_port = htons(7000);
+  dcserver.sin_port = PORT;
   printf("Server struct setup...\n");
   
   if ((dcsocket = socket(AF_INET, SOCK_STREAM, 0)) == -1)

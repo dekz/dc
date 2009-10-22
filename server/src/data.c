@@ -1,3 +1,6 @@
+#include <string.h>
+#include "shared.h"
+
 bool load_data()
 {
   char *mode = "r";

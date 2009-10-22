@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "globals.h"
+#include "shared.h"
 
 void welcome_message();
 void establish_connection();

@@ -8,7 +8,7 @@
 #include <netdb.h>
 #include <unistd.h>
 
-#include "globals.h"
+#include "shared.h"
 #include "helpers.h"
 
 #define HOST "localhost"

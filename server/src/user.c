@@ -1,3 +1,5 @@
+#include <stdlib.h>
+#include <string.h>
 #include "user.h"
 
 //adding a new user to our user linked list

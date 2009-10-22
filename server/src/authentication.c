@@ -1,4 +1,5 @@
 #include "authentication.h"
+#include "string.h"
 
 bool authenticate(char *name, char *pw)
 {

@@ -2,6 +2,6 @@
 #include <stdlib.h>
 #include <signal.h>
 
-#include "globals.h"
+#include "shared.h"
 #include "helpers.h"
 #include "socket.h"

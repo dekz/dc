@@ -1,4 +1,7 @@
+#include <string.h>
 #include "player.h"
+#include "linked_list.h"
+#include "shared.h"
 
 Player* new_player()
 {

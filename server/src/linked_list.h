@@ -19,7 +19,7 @@ typedef struct LinkedList {
 } LinkedList;
 
 
-bool *new_node(Player *player);
+bool new_node(Player *player);
 //node *get_node(int num);
 //node *get_node_name(char* name);
 //bool linked_list_contains(Player *player);

@@ -1,4 +1,6 @@
 #include "server.h"
+#include "data.h"
+#include "authentication.h"
 
 /*
 socket() create a new socket and return its descriptor
@@ -28,7 +30,6 @@ int main()
   int socket_current;
   int activity;
   struct sockaddr_in dcserver;
-  struct sockaddr_in dcclient;
   char buf[128];
   int master_socket;
   int loop;

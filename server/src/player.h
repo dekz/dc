@@ -6,7 +6,7 @@
 #include "../../shared/src/bool.h"
 
 
-typedef struct  {
+typedef struct Player {
   char name[10];
   char country[3];
   int innings;

@@ -1,9 +1,12 @@
 #ifndef GLOBALS_H
 #define GLOBALS_H
 
+#define USERS_FILE "data/USERS.txt"
+#define DATA_FILE  "data/BATTING.txt"
+
 #include <pthread.h>
 #include "../../shared/src/bool.h"
-#include "server.h"
+#include "user.h"
 #include "player.h"
 #include "linked_list.h"
 

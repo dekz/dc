@@ -2,12 +2,12 @@
 #include <stdlib.h>
 
 #include "linked_list.h"
-#include "globals.h"
+#include "shared.h"
 #include "helpers.h"
 #include "string.h"
 
 //adding a new batting player to the linked list
-bool *new_node(Player *player)
+bool new_node(Player *player)
 {
   if (player == NULL) return FALSE;
   

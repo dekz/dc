@@ -32,14 +32,14 @@ Player *getPlayer(char *name)
 char *getPlayerInfo(char *name)
 {
   Player* pl;
-  static char* plInfo[128];
+  static char plInfo[128];
   pl = getPlayer(name);
   if (pl != 0)
   {
     pl->queryCount++;
     //attach player details to the string
     //make sure i don't need to malloc TODO
-    sprintf(plInfo, "%s %s %d %d %d %d", pl->name, pl->country, pl->innings, pl->runs,pl->nOut,pl->hScore);
+    snprintf(plInfo, 128, "%s %s %d %d %d %d", pl->name, pl->country, pl->innings, pl->runs,pl->nOut,pl->hScore);
     return plInfo;
     
   } 

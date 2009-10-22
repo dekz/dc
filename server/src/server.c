@@ -26,7 +26,7 @@ int main()
   setup_socket();
   int opt=TRUE;
   int dcsocket;
-  int addrlen;
+  socklen_t addrlen;
   int socket_current;
   int activity;
   struct sockaddr_in dcserver;

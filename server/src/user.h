@@ -20,7 +20,7 @@ typedef struct UserLinkedList {
   int size;  
 } UserLinkedList;
 
-bool *new_user_node(user *a_user);
+bool new_user_node(user *a_user);
 user *new_user();
 user *getUser(char *name);
 

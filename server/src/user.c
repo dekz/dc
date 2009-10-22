@@ -1,9 +1,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include "user.h"
+#include "threads.h"
 
 //adding a new user to our user linked list
-bool *new_user_node(user *a_user)
+bool new_user_node(user *a_user)
 {
   if (a_user == NULL) return FALSE;
   
@@ -55,5 +56,5 @@ user *getUser(char *name)
       n = n->next; //check later for NULLS TODO
     }
   }
-  
+  return NULL;
 }

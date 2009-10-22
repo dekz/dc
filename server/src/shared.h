@@ -11,6 +11,7 @@
 pthread_mutex_t mutex;
 
 bool g_keep_running;
-LinkedList g_pl;
-UserLinkedList g_ul;
+
+LinkedList g_playerList;
+LinkedList g_userList;
 #endif

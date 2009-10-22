@@ -79,9 +79,9 @@ bool load_data()
 
       }
       
-      new_node(pl);
       printf("%s\n", pl->name);
       
+      new_player_node(pl);
     }
   }
     

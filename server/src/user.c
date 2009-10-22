@@ -4,52 +4,28 @@
 #include "threads.h"
 
 //adding a new user to our user linked list
-bool new_user_node(user *a_user)
+bool new_user_node(User *user)
 {
-  if (a_user == NULL) return FALSE;
-  
-  userNode *new_node = malloc(sizeof(userNode));
-  
-  new_node->u = a_user;
-  new_node->next = NULL;
-  
-  lock();
-  
-  userNode *current = g_ul.head;
-  
-  if (current == NULL)
-  {
-    g_ul.head = new_node;
-    
-  } else {
-    while (current->next != NULL)
-    {
-      current = current->next;
-    }
-    current->next = new_node;
-  }
-  
-  g_ul.size++;
-  
-  unlock();
-  
-  return TRUE;
+  return new_node(&g_userList, (void *)user, sizeof(user));
 }
 
-user *new_user()
+User *new_user()
 {
-  user *u = malloc(sizeof(user));
+  User *u = malloc(sizeof(User));
   return u;
 }
 
-user *getUser(char *name)
+User *getUser(char *name)
 {
-  userNode *n = g_ul.head;  
-  for (int i = 0; i < g_ul.size; i++) 
+  LinkedListNode *n = g_userList.head;  
+  for (int i = 0; i < g_userList.size; i++) 
   {
-    if (!strcmp(name, n->u->name)) 
+    User *u = n->data;
+    
+    
+    if (!strcmp(name, u->name)) 
     {
-      return n->u;
+      return u;
     }
     else
     {

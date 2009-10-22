@@ -21,5 +21,6 @@ typedef struct Player {
 Player* new_player();
 Player *getPlayer(char *name);
 char *getPlayerInfo(char *name);
+bool new_player_node(Player *pl);
 
 #endif

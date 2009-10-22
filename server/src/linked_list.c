@@ -7,22 +7,22 @@
 #include "string.h"
 
 //adding a new batting player to the linked list
-bool new_node(Player *player)
+bool new_node(LinkedList *ll, void *data, int size)
 {
-  if (player == NULL) return FALSE;
+  if (data == NULL) return FALSE;
+    
+  LinkedListNode *new_node = malloc(size);
   
-  node *new_node = malloc(sizeof(player));
-  
-  new_node->player = player;
+  new_node->data = data;
   new_node->next = NULL;
   
   lock();
   
-  node *current = g_pl.head;
+  LinkedListNode *current = ll->head;
   
   if (current == NULL)
   {
-    g_pl.head = new_node;
+    ll->head = new_node;
     
   } else {
     while (current->next != NULL)
@@ -32,7 +32,7 @@ bool new_node(Player *player)
     current->next = new_node;
   }
   
-  g_pl.size++;
+  ll->size++;
   
   unlock();
   

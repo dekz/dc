@@ -5,23 +5,20 @@
 #include <stdlib.h>
 
 #include "../../shared/src/bool.h"
-#include "player.h"
 
-//player linked list
-typedef struct node {
-  Player *player;
-  struct node *next;
-} node;
+typedef struct LinkedListNode {
+  void *data;
+  struct LinkedListNode *next;
+} LinkedListNode;
 
 typedef struct LinkedList {
-  node *head;
+  LinkedListNode *head;
   int size;  
 } LinkedList;
 
-
-bool new_node(Player *player);
+bool new_node(LinkedList *ll, void *data, int size);
 //node *get_node(int num);
-//node *get_node_name(char* name);
+// LinkedListNode *get_node_name(char* name);
 //bool linked_list_contains(Player *player);
 
 #endif 

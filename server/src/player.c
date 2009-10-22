@@ -3,10 +3,14 @@
 #include "linked_list.h"
 #include "shared.h"
 
+bool new_player_node(Player *pl)
+{
+  return new_node(&g_playerList, (void *)pl, sizeof(pl));
+}
+
 Player* new_player()
 {
   Player *p = malloc(sizeof(Player));
-  
   return p;
 }
 
@@ -14,12 +18,15 @@ Player *getPlayer(char *name)
 {
   //this will play up if the player doesn't exist, will return head TODO
   //problems if there is no head either
-  node *n = g_pl.head;
-  for (int i = 0; i < g_pl.size; i++) 
+  
+  LinkedListNode *n = g_playerList.head;
+  for (int i = 0; i < g_playerList.size; i++) 
   {
-    if (!strcmp(name, n->player->name)) 
+    Player *p = n->data;
+    
+    if (!strcmp(name, p->name)) 
     {
-      return n->player;
+      return p;
     }
     else
     {

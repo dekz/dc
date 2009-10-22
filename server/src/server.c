@@ -147,7 +147,6 @@ int main()
           buf[n] = 0;
           char *returnString;
           returnString = processCommand(buf);
-          printf(returnString);
           send(client_socket[loop], returnString, PLAYER_INFO_LENGTH, 0);
           returnString = 0;
         }

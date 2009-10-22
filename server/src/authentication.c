@@ -3,7 +3,7 @@
 
 bool authenticate(char *name, char *pw)
 {
-  user *u;
+  User *u;
   if ((u = getUser(name)))
   {
     if (!strcmp(u->pw, pw))
@@ -22,7 +22,7 @@ bool load_users()
   char buffer[25];
   FILE* file;
   file = fopen(filename, mode);
-  user *u;
+  User *u;
   int index = 0;
   int length = 0;
   int partialLine = 0;

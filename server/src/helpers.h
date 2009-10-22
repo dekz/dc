@@ -13,9 +13,6 @@
 void welcome_message();
 void lock();
 void unlock();
-bool load_data();
-Player *getPlayer(char *name);
-char *getPlayerInfo(char *name);
 char *getCommand(char* buf);
 char *processCommand(char* buf);
 #endif

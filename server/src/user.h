@@ -1,4 +1,3 @@
-
 //user for authentication
 typedef struct user {
   char name[20];

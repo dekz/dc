@@ -19,4 +19,7 @@ typedef struct  {
 
 
 Player* new_player();
+Player *getPlayer(char *name);
+char *getPlayerInfo(char *name);
+
 #endif

@@ -1,3 +1,5 @@
+#include "user.h"
+
 //adding a new user to our user linked list
 bool *new_user_node(user *a_user)
 {

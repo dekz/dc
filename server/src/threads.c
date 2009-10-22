@@ -2,5 +2,5 @@
 
 void *monitor(void *arg)
 {
-	printf("Monitor starting");
+  printf("Monitor starting");
 }

@@ -2,8 +2,8 @@
 
 Player* new_player()
 {
-	Player *p = malloc(sizeof(Player));
-	
-	return p;
+  Player *p = malloc(sizeof(Player));
+  
+  return p;
 }
 

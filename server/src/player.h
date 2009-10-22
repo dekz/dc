@@ -7,14 +7,14 @@
 
 
 typedef struct  {
-	char name[10];
-	char country[3];
-	int innings;
-	int runs;
-	int nOut;
-	int hScore;
-	bool isNO;
-	int queryCount;
+  char name[10];
+  char country[3];
+  int innings;
+  int runs;
+  int nOut;
+  int hScore;
+  bool isNO;
+  int queryCount;
 } Player;
 
 

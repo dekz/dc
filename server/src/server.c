@@ -36,7 +36,7 @@ int main()
 	int client_socket[30];
 	int max_clients=30;
 	fd_set readfds;
-	char welcomeString[] = "TEST WELCOME MESSAGE";
+	char welcomeString[] = "Welcome to the Cricket Scores\n\t\tSincerely, the Server";
 	
 	printf("Creating Socket...\n");
 

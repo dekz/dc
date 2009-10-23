@@ -140,6 +140,17 @@ int main()
 			}
 		}
 		
+		
+		/*
+	Client message loop
+		iterate over the array of connections
+		check if anything is received, this should be authentication
+			if authentication passed then attempt to receive command
+				process command
+				return string
+		close connection
+		 */
+		
 		for (loop=0; loop<max_clients; loop++) 
 		{
 			if (FD_ISSET(client_socket[loop], &readfds)) 

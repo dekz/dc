@@ -134,10 +134,10 @@ bool strip_auth(char *buf)
 	//TODO FIX
 	strcpy(password, temp);
 	
-	if ( (username == 0) || (password == 0))
-	{
-		return 0;
-	}
-	
+	// if ( (username == 0) || (password == 0))
+	// {
+	// 	return 0;
+	// }
+	// 
 	return authenticate(username, password);
 }

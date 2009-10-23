@@ -11,7 +11,9 @@
 #include "shared.h"
 #include "helpers.h"
 
-#define HOST  "localhost"
+#define HOST           "localhost"
+#define MAX_AUTH_SIZE  20
 
 int send_message(int sockfd, char *msg);
 int receive_message(int sockfd, char *buf);
+void print_welcome_message(int socket, bool should_print);

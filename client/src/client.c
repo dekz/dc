@@ -1,7 +1,5 @@
 #include "client.h"
 
-#define MAX_MESSAGE_SIZE 20
-
 int socket_start()
 {
     int sock;
@@ -41,40 +39,97 @@ int socket_start()
     return sock;
 }
 
-int main()
+void prompt(char *message, char *response, int size)
 {
-  char message[MAX_MESSAGE_SIZE];
-  char buffer[PLAYER_INFO_LENGTH];
-  int socket;
-  
-  welcome_message();
-  
-  printf("What player would you like to look up? ");
-  if(fgets(message, MAX_MESSAGE_SIZE, stdin) == NULL)
+	printf("%s", message);
+  if(fgets(message, size, stdin) == NULL)
   {
     perror("fgets");
-    return 1;
+		exit(1);
   }
-  
   chomp(message);
-  
-  printf("Looking up '%s'\n", message);
- 
-  // while(1) 
-  // {
+}
+
+void get_auth_details(char *username, char *password, char* auth)
+{
+	prompt("Username: ", username, MAX_AUTH_SIZE);
+	prompt("Password: ", password, MAX_AUTH_SIZE);
+	
+	snprintf(auth, MAX_AUTH_SIZE*2+1, "%s\r%s", username, password);
+}
+
+bool authenticated(char* auth, int socket) {
+	char response[MAX_AUTH_SIZE];
+	
+	if(send_message(socket, auth))	
+	{
+		if(receive_message(socket, response)) {
+			if(strcmp(response, "1") == 0)
+				return TRUE;
+		}
+	}
+	
+	return FALSE;
+}
+
+void communicate(char* auth, int socket) {
+  char message[MAX_MESSAGE_SIZE];
+  char buffer[MAX_MESSAGE_SIZE];
+	bool should_print = TRUE;
+
+
+  while(1) 
+  {
     if((socket = socket_start()) >= 0)
     {
-      if(send_message(socket, message) == TRUE)
-      {
-        if(receive_message(socket, buffer) == TRUE)
-        {
-          printf("%s\n", buffer);
-        }
-      }
-      close(socket);
-    } // else break;
-    //   }
+			print_welcome_message(socket, should_print);
+			should_print = FALSE;
+	
+			if(authenticated(auth, socket)) {
+				memset(message, 0, MAX_MESSAGE_SIZE);
+				memset(buffer,  0, MAX_MESSAGE_SIZE);
 
+				prompt("What player would you like to look up? ", message, MAX_MESSAGE_SIZE);
+			  printf("Looking up '%s'\n", message);
+
+	      if(send_message(socket, message))
+	      {
+	        if(receive_message(socket, buffer))
+	        {
+	          printf("%s\n", buffer);
+	        }
+	      }
+			} else {
+				printf("Incorrect authentication details!\n");
+				return;
+			}
+      close(socket);
+    } else {
+			perror("socket_start");
+			return;
+		}
+  }
+}
+
+void print_welcome_message(int socket, bool should_print) 
+{
+	char welcome[MAX_MESSAGE_SIZE];
+	if(receive_message(socket, welcome)) {
+		if(should_print)
+			printf("%s", welcome);
+	}
+}
+
+int main()
+{
+	char auth[MAX_AUTH_SIZE * 2 + 1];
+	char username[MAX_AUTH_SIZE];
+	char password[MAX_AUTH_SIZE];
+  int socket;
+  
+	get_auth_details(username, password, auth);
+	communicate(auth, socket);
+	    
   return 0;
 }
 
@@ -90,7 +145,7 @@ int send_message(int sockfd, char *msg)
 
 int receive_message(int sockfd, char *buf)
 {
-  if (recv(sockfd, buf, PLAYER_INFO_LENGTH, 0) == -1)
+  if (recv(sockfd, buf, MAX_MESSAGE_SIZE, 0) == -1)
   {
     perror("recv");
     exit(1);

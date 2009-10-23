@@ -1,7 +1,6 @@
 #include "server.h"
 #include "data.h"
 #include "authentication.h"
-#include "shared.h"
 
 /*
  socket() create a new socket and return its descriptor
@@ -37,9 +36,7 @@ int main()
 	int client_socket[30];
 	int max_clients=30;
 	fd_set readfds;
-	char *welcomeString;
-	welcomeString = "TEST WELCOME MESSAGE";
-	
+	char welcomeString[] = "TEST WELCOME MESSAGE";
 	
 	printf("Creating Socket...\n");
 	/*
@@ -162,19 +159,19 @@ int main()
 					char *returnString;
 					if (strip_auth(buf))
 					{
-						send(client_socket[loop], '1', 1, 0);
+						send(client_socket[loop], "1", 1, 0);
 						n = recv(client_socket[loop], buf, sizeof(buf), 0);  //login credentials
 						//if we are authenticated then lets process another command
 						printf("user authenticated\n");
 						if (n) 
 						{
 							returnString = processCommand(buf);
-							send(client_socket[loop], returnString, PLAYER_INFO_LENGTH, 0);
+							send(client_socket[loop], returnString, MAX_MESSAGE_SIZE, 0);
 							returnString = 0;
 						}
 					}
 					else {
-						send(client_socket[loop], '0', 1, 0);
+						send(client_socket[loop], "0", 1, 0);
 					}
 				}
 				
@@ -213,13 +210,6 @@ int main()
 	
 	
 	close(socket_current);
-	// close(dcserver);
-	// close(dcclient);
 	
 	exit(0);
-}
-
-void setupsockets()
-{
-	
 }

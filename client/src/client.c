@@ -121,11 +121,11 @@ void lookup_player()
   {
     if(receive_message(buffer))
     {
-			if(strcmp("1", buffer))
+			if(buffer[0] == '1')
 			{
 				printf("'%s' not found amongst the batting figures.\n", player);
 				printf("Please check your spelling and try again.\n");
-			} else if(strcmp("2", buffer)) {
+			} else if(buffer[0] == '2') {
 				printf("Invalid authentication details. Try again.\n");
 				memset(auth, 0, MAX_AUTH_SIZE*2+1);
 			} else {

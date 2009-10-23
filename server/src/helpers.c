@@ -43,7 +43,7 @@ char *processCommand(char* buf)
     
   } else 
   {
-    playerInfo = "No Such player\n";
+    playerInfo = "1";
     return playerInfo;
   }
   

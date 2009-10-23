@@ -46,7 +46,7 @@ char *getPlayerInfo(char *name)
     pl->queryCount++;
     //attach player details to the string
     //make sure i don't need to malloc TODO
-    snprintf(plInfo, MAX_MESSAGE_SIZE, "%s %s %d %d %d %d", pl->name, pl->country, pl->innings, pl->runs,pl->nOut,pl->hScore);
+    snprintf(plInfo, MAX_MESSAGE_SIZE, "0\t%s\t%s\t%d\t%d\t%d\t%d\t%d", pl->name, pl->country, pl->innings, pl->runs,pl->nOut,pl->hScore, pl->queryCount);
     return plInfo;
     
   } 

@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		275100061085B0A6007F4E2B /* helpers.c in Sources */ = {isa = PBXBuildFile; fileRef = 2751FFFB1085B0A6007F4E2B /* helpers.c */; };
-		275100071085B0A6007F4E2B /* linked_list.c in Sources */ = {isa = PBXBuildFile; fileRef = 2751FFFD1085B0A6007F4E2B /* linked_list.c */; };
-		275100081085B0A6007F4E2B /* player.c in Sources */ = {isa = PBXBuildFile; fileRef = 2751FFFF1085B0A6007F4E2B /* player.c */; };
-		275100091085B0A6007F4E2B /* server.c in Sources */ = {isa = PBXBuildFile; fileRef = 275100011085B0A6007F4E2B /* server.c */; };
-		2751000A1085B0A6007F4E2B /* threads.c in Sources */ = {isa = PBXBuildFile; fileRef = 275100031085B0A6007F4E2B /* threads.c */; };
+		2762233C1091B2920080314D /* authentication.c in Sources */ = {isa = PBXBuildFile; fileRef = 276223291091B2920080314D /* authentication.c */; };
+		2762233D1091B2920080314D /* data.c in Sources */ = {isa = PBXBuildFile; fileRef = 2762232B1091B2920080314D /* data.c */; };
+		2762233E1091B2920080314D /* helpers.c in Sources */ = {isa = PBXBuildFile; fileRef = 2762232D1091B2920080314D /* helpers.c */; };
+		2762233F1091B2920080314D /* linked_list.c in Sources */ = {isa = PBXBuildFile; fileRef = 2762232F1091B2920080314D /* linked_list.c */; };
+		276223401091B2920080314D /* player.c in Sources */ = {isa = PBXBuildFile; fileRef = 276223311091B2920080314D /* player.c */; };
+		276223411091B2920080314D /* server.c in Sources */ = {isa = PBXBuildFile; fileRef = 276223331091B2920080314D /* server.c */; };
+		276223421091B2920080314D /* socket.c in Sources */ = {isa = PBXBuildFile; fileRef = 276223361091B2920080314D /* socket.c */; };
+		276223431091B2920080314D /* threads.c in Sources */ = {isa = PBXBuildFile; fileRef = 276223381091B2920080314D /* threads.c */; };
+		276223441091B2920080314D /* user.c in Sources */ = {isa = PBXBuildFile; fileRef = 2762233A1091B2920080314D /* user.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,19 +32,26 @@
 
 /* Begin PBXFileReference section */
 		272388A110870C7A0051C9EF /* dc */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = dc; sourceTree = BUILT_PRODUCTS_DIR; };
-		275100001085B0A6007F4E2B /* player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = player.h; path = server/src/player.h; sourceTree = SOURCE_ROOT; };
-		275100011085B0A6007F4E2B /* server.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = server.c; path = server/src/server.c; sourceTree = SOURCE_ROOT; };
-		275100021085B0A6007F4E2B /* server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = server.h; path = server/src/server.h; sourceTree = SOURCE_ROOT; };
-		275100031085B0A6007F4E2B /* threads.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = threads.c; path = server/src/threads.c; sourceTree = SOURCE_ROOT; };
-		275100041085B0A6007F4E2B /* threads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = threads.h; path = server/src/threads.h; sourceTree = SOURCE_ROOT; };
 		2751FFEA1085B0A6007F4E2B /* BATTING.TXT */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = BATTING.TXT; path = server/BATTING.TXT; sourceTree = SOURCE_ROOT; };
-		2751FFF91085B0A6007F4E2B /* bool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bool.h; path = server/src/bool.h; sourceTree = SOURCE_ROOT; };
-		2751FFFA1085B0A6007F4E2B /* globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = globals.h; path = server/src/globals.h; sourceTree = SOURCE_ROOT; };
-		2751FFFB1085B0A6007F4E2B /* helpers.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = helpers.c; path = server/src/helpers.c; sourceTree = SOURCE_ROOT; };
-		2751FFFC1085B0A6007F4E2B /* helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = helpers.h; path = server/src/helpers.h; sourceTree = SOURCE_ROOT; };
-		2751FFFD1085B0A6007F4E2B /* linked_list.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = linked_list.c; path = server/src/linked_list.c; sourceTree = SOURCE_ROOT; };
-		2751FFFE1085B0A6007F4E2B /* linked_list.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = linked_list.h; path = server/src/linked_list.h; sourceTree = SOURCE_ROOT; };
-		2751FFFF1085B0A6007F4E2B /* player.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = player.c; path = server/src/player.c; sourceTree = SOURCE_ROOT; };
+		276223291091B2920080314D /* authentication.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = authentication.c; sourceTree = "<group>"; };
+		2762232A1091B2920080314D /* authentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = authentication.h; sourceTree = "<group>"; };
+		2762232B1091B2920080314D /* data.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = data.c; sourceTree = "<group>"; };
+		2762232C1091B2920080314D /* data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = data.h; sourceTree = "<group>"; };
+		2762232D1091B2920080314D /* helpers.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = helpers.c; sourceTree = "<group>"; };
+		2762232E1091B2920080314D /* helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = helpers.h; sourceTree = "<group>"; };
+		2762232F1091B2920080314D /* linked_list.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = linked_list.c; sourceTree = "<group>"; };
+		276223301091B2920080314D /* linked_list.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = linked_list.h; sourceTree = "<group>"; };
+		276223311091B2920080314D /* player.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = player.c; sourceTree = "<group>"; };
+		276223321091B2920080314D /* player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = player.h; sourceTree = "<group>"; };
+		276223331091B2920080314D /* server.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = server.c; sourceTree = "<group>"; };
+		276223341091B2920080314D /* server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = server.h; sourceTree = "<group>"; };
+		276223351091B2920080314D /* shared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shared.h; sourceTree = "<group>"; };
+		276223361091B2920080314D /* socket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = socket.c; sourceTree = "<group>"; };
+		276223371091B2920080314D /* socket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = socket.h; sourceTree = "<group>"; };
+		276223381091B2920080314D /* threads.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = threads.c; sourceTree = "<group>"; };
+		276223391091B2920080314D /* threads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = threads.h; sourceTree = "<group>"; };
+		2762233A1091B2920080314D /* user.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = user.c; sourceTree = "<group>"; };
+		2762233B1091B2920080314D /* user.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = user.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,18 +94,25 @@
 		2751FFF81085B0A6007F4E2B /* src */ = {
 			isa = PBXGroup;
 			children = (
-				2751FFF91085B0A6007F4E2B /* bool.h */,
-				2751FFFA1085B0A6007F4E2B /* globals.h */,
-				2751FFFB1085B0A6007F4E2B /* helpers.c */,
-				2751FFFC1085B0A6007F4E2B /* helpers.h */,
-				2751FFFD1085B0A6007F4E2B /* linked_list.c */,
-				2751FFFE1085B0A6007F4E2B /* linked_list.h */,
-				2751FFFF1085B0A6007F4E2B /* player.c */,
-				275100001085B0A6007F4E2B /* player.h */,
-				275100011085B0A6007F4E2B /* server.c */,
-				275100021085B0A6007F4E2B /* server.h */,
-				275100031085B0A6007F4E2B /* threads.c */,
-				275100041085B0A6007F4E2B /* threads.h */,
+				276223291091B2920080314D /* authentication.c */,
+				2762232A1091B2920080314D /* authentication.h */,
+				2762232B1091B2920080314D /* data.c */,
+				2762232C1091B2920080314D /* data.h */,
+				2762232D1091B2920080314D /* helpers.c */,
+				2762232E1091B2920080314D /* helpers.h */,
+				2762232F1091B2920080314D /* linked_list.c */,
+				276223301091B2920080314D /* linked_list.h */,
+				276223311091B2920080314D /* player.c */,
+				276223321091B2920080314D /* player.h */,
+				276223331091B2920080314D /* server.c */,
+				276223341091B2920080314D /* server.h */,
+				276223351091B2920080314D /* shared.h */,
+				276223361091B2920080314D /* socket.c */,
+				276223371091B2920080314D /* socket.h */,
+				276223381091B2920080314D /* threads.c */,
+				276223391091B2920080314D /* threads.h */,
+				2762233A1091B2920080314D /* user.c */,
+				2762233B1091B2920080314D /* user.h */,
 			);
 			name = src;
 			path = server/src;
@@ -144,11 +162,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				275100061085B0A6007F4E2B /* helpers.c in Sources */,
-				275100071085B0A6007F4E2B /* linked_list.c in Sources */,
-				275100081085B0A6007F4E2B /* player.c in Sources */,
-				275100091085B0A6007F4E2B /* server.c in Sources */,
-				2751000A1085B0A6007F4E2B /* threads.c in Sources */,
+				2762233C1091B2920080314D /* authentication.c in Sources */,
+				2762233D1091B2920080314D /* data.c in Sources */,
+				2762233E1091B2920080314D /* helpers.c in Sources */,
+				2762233F1091B2920080314D /* linked_list.c in Sources */,
+				276223401091B2920080314D /* player.c in Sources */,
+				276223411091B2920080314D /* server.c in Sources */,
+				276223421091B2920080314D /* socket.c in Sources */,
+				276223431091B2920080314D /* threads.c in Sources */,
+				276223441091B2920080314D /* user.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

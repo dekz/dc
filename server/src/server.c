@@ -39,11 +39,7 @@ int main()
 	char welcomeString[] = "TEST WELCOME MESSAGE";
 	
 	printf("Creating Socket...\n");
-	/*
-	 if ((dcsocket = socket(AF_INET, SOCK_STREAM, 0)) == -1)
-	 {
-	 printf("socket \n");
-	 }*/
+
 	
 	//initialise all clients
 	for (loop=0; loop < max_clients; loop++) {
@@ -87,15 +83,6 @@ int main()
 		exit(EXIT_FAILURE);
 	}
 	
-	/*
-	 addrlen = sizeof(dcclient);
-	 printf("Accepting Connections...\n");
-	 
-	 if ((socket_current = accept(dcsocket, (struct sockaddr *) &dcclient, &addrlen)) == -1)
-	 {
-	 printf("accept\n");
-	 exit(1);
-	 }*/
 	
 	int n = 0; 
 	
@@ -130,7 +117,7 @@ int main()
 				if (client_socket[loop] == 0) 
 				{
 					client_socket[loop] = dcsocket;
-					send(client_socket[loop], welcomeString, sizeof(welcomeString), 0);
+					send(client_socket[loop], welcomeString, strlen(welcomeString)+1, 0);
 					printf("Adding to list of sockets as %d\n", loop);
 					loop = max_clients;
 				}
@@ -171,10 +158,10 @@ int main()
 					//once authenticated, send the informtion
 					char *returnString;
 					returnString = processCommand(query);
-					send(client_socket[loop], returnString, strlen(returnString), 0);
+					send(client_socket[loop], returnString, strlen(returnString) +1, 0);
 				} else
 				{
-					send(client_socket[loop], '0', 1, 0);
+					send(client_socket[loop], "2", 2, 0);
 				}
 				
 				printf("Closing socket\n ");

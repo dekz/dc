@@ -5,7 +5,6 @@
 #define HOST           "localhost"
 #define MAX_AUTH_SIZE  20
 
-bool authenticated();
 int receive_message(char *buf);
 int send_message(char *msg);
 void auth_prompt();

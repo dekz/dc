@@ -25,13 +25,7 @@ int main()
 		if(sock >= 0)
 	  {
 			print_welcome_message();
-			if(authenticated()) {
-				lookup_player(socket);
-			} else {
-				puts("Incorrect authentication details!");
-				return 1;
-			}
-		
+			lookup_player();
       close(sock);
 			sock = -1;
 	  } else {
@@ -105,44 +99,41 @@ void auth_prompt()
 		prompt("Password: ", password, sizeof(password));
 	
 		snprintf(auth, MAX_AUTH_SIZE*2+1, "%s\t%s", username, password);
-		
-		printf("\n|%s|\n", auth);
 	}
 }
 
-bool authenticated()
-{
-	auth_prompt(auth);
-
-	char response[MAX_MESSAGE_SIZE];
-	memset(response, 0, MAX_MESSAGE_SIZE);
-	
-	if(send_message(auth))	
-	{
-		if(receive_message(response)) {
-			if(strcmp(response, "1") == 0)
-				return TRUE;
-		}
-	}
-	
-	return FALSE;
-}
 
 void lookup_player()
 {
-  char message[MAX_MESSAGE_SIZE];
+	int size = MAX_MESSAGE_SIZE+MAX_AUTH_SIZE+MAX_AUTH_SIZE+2;
+	char player[MAX_MESSAGE_SIZE];
+	char message[size];
   char buffer[MAX_MESSAGE_SIZE];
 
-	prompt("What player would you like to look up? ", message, MAX_MESSAGE_SIZE);
-  printf("Looking up '%s'\n", message);
+	auth_prompt();
+
+	prompt("What player would you like to look up? ", player, MAX_MESSAGE_SIZE);
+  printf("Looking up '%s'\n", player);
+
+	snprintf(message, size, "%s\t%s", auth, player);
 
   if(send_message(message))
   {
     if(receive_message(buffer))
     {
-      printf("%s\n", buffer);
+			if(strcmp("1", buffer))
+			{
+				printf("'%s' not found amongst the batting figures.\n", player);
+				printf("Please check your spelling and try again.\n");
+			} else if(strcmp("2", buffer)) {
+				printf("Invalid authentication details. Try again.\n");
+				memset(auth, 0, MAX_AUTH_SIZE*2+1);
+			} else {
+				printf("%s\n", buffer);
+			}
     }
   }
+
 }
 
 void print_welcome_message() 

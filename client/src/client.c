@@ -121,15 +121,40 @@ void lookup_player()
   {
     if(receive_message(buffer))
     {
-			if(buffer[0] == '1')
-			{
-				printf("'%s' not found amongst the batting figures.\n", player);
-				printf("Please check your spelling and try again.\n");
-			} else if(buffer[0] == '2') {
-				printf("Invalid authentication details. Try again.\n");
-				memset(auth, 0, MAX_AUTH_SIZE*2+1);
-			} else {
-				printf("%s\n", buffer);
+			char name[MAX_MESSAGE_SIZE];
+			char country[MAX_MESSAGE_SIZE];
+			int innings, runs, nOut, hScore, qCount;
+	
+			switch(buffer[0]) {
+				case '0':
+					printf("status, name, country, innings, runs, not out, high score, query count\n%s\n\n", buffer);
+					sscanf(buffer, "0\t%s\t%s\t%d\t%d\t%d\t%d\t%d", name, country, &innings, &runs, &nOut, &hScore, &qCount);				
+					
+					printf("'%s' scored a total of %d run(s)\n\n", name, runs);
+					printf("\tMore details for %s (details fetched %d times):\n\n", name, qCount);
+					
+					printf("\tCountry:\t%s\n", country);
+					printf("\tInnings:\t%d\n", innings);
+					printf("\tRuns:\t\t%d\n", runs);
+					printf("\tNot Out:\t%d\n", nOut);
+					printf("\tAverage:\t");
+					if((innings - nOut) == 0)
+						printf("n/a");
+					else
+						printf("%.3f", ((float)runs)/((float)(innings - nOut)));
+					printf("\n\tHigh Score:\t%d\n\n", hScore);
+					break;
+				case '1':
+					printf("'%s' not found amongst the batting figures.\n", player);
+					printf("Please check your spelling and try again.\n");
+					break;
+				case '2':
+					printf("Invalid authentication details. Try again.\n");
+					memset(auth, 0, MAX_AUTH_SIZE*2+1);
+					break;
+				default:
+					printf("Unknown response from server. Quitting...\n");
+					break;
 			}
     }
   }

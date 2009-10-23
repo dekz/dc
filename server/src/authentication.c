@@ -106,7 +106,7 @@ bool strip_auth(char *buf)
 		current = buf[i];
 		if (current == '\t' || current == '\n' || current == '\r') 
 		{
-			if (inText = TRUE)
+			if (inText)
 			{
 				//we've reached the end of either the pw or the u/n
 				switch (part) 

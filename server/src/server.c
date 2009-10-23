@@ -165,16 +165,16 @@ int main()
 					else {
 						send(client_socket[loop], '0', 1, 0);
 					}
-
-					printf("Closing socket\n ");
-					close(client_socket[loop]);	
-					client_socket[loop] = 0;
-					//close connection
-					//remove connection from client_socket
-					//set to null
-					//shuffle the client_socket
-					//lower count of max_clients?
 				}
+				
+				printf("Closing socket\n ");
+				close(client_socket[loop]);	
+				client_socket[loop] = 0;
+				//close connection
+				//remove connection from client_socket
+				//set to null
+				//shuffle the client_socket
+				//lower count of max_clients?
 			}
 		}
 		

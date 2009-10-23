@@ -160,16 +160,15 @@ int main()
 							returnString = processCommand(buf);
 							send(client_socket[loop], returnString, PLAYER_INFO_LENGTH, 0);
 							returnString = 0;
-							printf("Closing socket\n ");
-							close(client_socket[loop]);	
-							client_socket[loop] = 0;
 						}
 					}
 					else {
 						send(client_socket[loop], '0', 1, 0);
 					}
 
-					
+					printf("Closing socket\n ");
+					close(client_socket[loop]);	
+					client_socket[loop] = 0;
 					//close connection
 					//remove connection from client_socket
 					//set to null

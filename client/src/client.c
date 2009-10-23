@@ -1,9 +1,12 @@
 #include "client.h"
 
-int socket_start()
+struct sockaddr_in server;
+bool welcome_message_printed = FALSE;
+char auth[MAX_AUTH_SIZE + MAX_AUTH_SIZE + 1];
+int sock = -1;
+
+void socket_start()
 {
-    int sock;
-    struct sockaddr_in server;
     struct hostent *hp;
 
     debug("Attempting to get hostname...");
@@ -29,14 +32,14 @@ int socket_start()
       perror("socket");
       exit(1);
     }
+}
 
-    if (connect(sock, (struct sockaddr *)&server, sizeof(server)) == -1)
-    {
-      perror("connect");
-      exit(1);
-    }
-    
-    return sock;
+void socket_connect() {
+	if (connect(sock, (struct sockaddr *)&server, sizeof(server)) == -1)
+  {
+    perror("connect");
+    exit(1);
+  }
 }
 
 void prompt(char *message, char *response, int size)
@@ -50,20 +53,29 @@ void prompt(char *message, char *response, int size)
   chomp(message);
 }
 
-void get_auth_details(char *username, char *password, char* auth)
+void auth_prompt()
 {
-	prompt("Username: ", username, MAX_AUTH_SIZE);
-	prompt("Password: ", password, MAX_AUTH_SIZE);
+	if(strlen(auth) == 0)
+	{	
+		char username[MAX_AUTH_SIZE];
+		char password[MAX_AUTH_SIZE];
 	
-	snprintf(auth, MAX_AUTH_SIZE*2+1, "%s\r%s", username, password);
+		prompt("Username: ", username, MAX_AUTH_SIZE);
+		prompt("Password: ", password, MAX_AUTH_SIZE);
+	
+		snprintf(auth, MAX_AUTH_SIZE*2+1, "%s\r%s", username, password);
+	}
 }
 
-bool authenticated(char* auth, int socket) {
-	char response[MAX_AUTH_SIZE];
+bool authenticated()
+{
+	auth_prompt(auth);
+
+	char response[MAX_MESSAGE_SIZE];
 	
-	if(send_message(socket, auth))	
+	if(send_message(auth))	
 	{
-		if(receive_message(socket, response)) {
+		if(receive_message(response)) {
 			if(strcmp(response, "1") == 0)
 				return TRUE;
 		}
@@ -72,70 +84,69 @@ bool authenticated(char* auth, int socket) {
 	return FALSE;
 }
 
-void communicate(char* auth, int socket) {
+void lookup_player()
+{
   char message[MAX_MESSAGE_SIZE];
   char buffer[MAX_MESSAGE_SIZE];
-	bool should_print = TRUE;
 
+	prompt("What player would you like to look up? ", message, MAX_MESSAGE_SIZE);
+  printf("Looking up '%s'\n", message);
 
-  while(1) 
+  if(send_message(message))
   {
-    if((socket = socket_start()) >= 0)
+    if(receive_message(buffer))
     {
-			print_welcome_message(socket, should_print);
-			should_print = FALSE;
+      printf("%s\n", buffer);
+    }
+  }
+}
+
+void communicate()
+{
+	socket_start();
 	
-			if(authenticated(auth, socket)) {
-				memset(message, 0, MAX_MESSAGE_SIZE);
-				memset(buffer,  0, MAX_MESSAGE_SIZE);
-
-				prompt("What player would you like to look up? ", message, MAX_MESSAGE_SIZE);
-			  printf("Looking up '%s'\n", message);
-
-	      if(send_message(socket, message))
-	      {
-	        if(receive_message(socket, buffer))
-	        {
-	          printf("%s\n", buffer);
-	        }
-	      }
+	if(sock >= 0)
+  {
+	  while(1) 
+	  {
+			socket_connect();
+			print_welcome_message();
+			if(authenticated()) {
+				lookup_player(socket);
 			} else {
 				printf("Incorrect authentication details!\n");
 				return;
 			}
+			
       close(socket);
-    } else {
-			perror("socket_start");
-			return;
 		}
-  }
+  } else {
+		perror("socket_start");
+		return;
+	}
 }
 
-void print_welcome_message(int socket, bool should_print) 
+void print_welcome_message() 
 {
 	char welcome[MAX_MESSAGE_SIZE];
-	if(receive_message(socket, welcome)) {
-		if(should_print)
-			printf("%s", welcome);
+	if(receive_message(welcome)) {
+		if(!welcome_message_printed)
+		{
+			printf("%s\n", welcome);
+			welcome_message_printed = TRUE;
+		}
 	}
 }
 
 int main()
 {
-	char auth[MAX_AUTH_SIZE * 2 + 1];
-	char username[MAX_AUTH_SIZE];
-	char password[MAX_AUTH_SIZE];
-  int socket;
-  
-	get_auth_details(username, password, auth);
-	communicate(auth, socket);
-	    
+	communicate();
   return 0;
 }
 
-int send_message(int sockfd, char *msg)
+int send_message(char *msg)
 {
-  if (send(sockfd, msg, strlen(msg), 0) == -1)
+  if (send(sock, msg, strlen(msg), 0) == -1)
   {
     perror("send");
     exit(1);
@@ -143,9 +154,9 @@ int send_message(int sockfd, char *msg)
   return TRUE;
 }
 
-int receive_message(int sockfd, char *buf)
+int receive_message(char *buf)
 {
-  if (recv(sockfd, buf, MAX_MESSAGE_SIZE, 0) == -1)
+  if (recv(sock, buf, MAX_MESSAGE_SIZE, 0) == -1)
   {
     perror("recv");
     exit(1);

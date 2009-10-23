@@ -14,6 +14,10 @@
 #define HOST           "localhost"
 #define MAX_AUTH_SIZE  20
 
-int send_message(int sockfd, char *msg);
-int receive_message(int sockfd, char *buf);
-void print_welcome_message(int socket, bool should_print);
+bool authenticated();
+int receive_message(char *buf);
+int send_message(char *msg);
+void auth_prompt();
+void communicate();
+void print_welcome_message();
+void prompt(char *message, char *response, int size);

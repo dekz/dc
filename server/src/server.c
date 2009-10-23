@@ -152,27 +152,29 @@ int main()
 		{
 			if (FD_ISSET(client_socket[loop], &readfds)) 
 			{
-				n = recv(client_socket[loop], buf, sizeof(buf), 0);  //login credentials
+				//buffer should be in the form of "user\tpassword\tquery"
+				char username[20];
+				char password[20];
+				char query[20];
+				memset(buf, 0, strlen(buf));
+				n = read(client_socket[loop], buf, sizeof(buf));  //login credentials and query
+				
 				if (n)
 				{
-					buf[n] = 0;
+					//load in the details from the buffer string
+					sscanf(buf, "%s %s %s", username, password, query);
+				}
+				
+				//authenticate the user
+				if (authenticate(username, password))
+				{
+					//once authenticated, send the informtion
 					char *returnString;
-					if (strip_auth(buf))
-					{
-						send(client_socket[loop], "1", 1, 0);
-						n = recv(client_socket[loop], buf, sizeof(buf), 0);  //login credentials
-						//if we are authenticated then lets process another command
-						printf("user authenticated\n");
-						if (n) 
-						{
-							returnString = processCommand(buf);
-							send(client_socket[loop], returnString, MAX_MESSAGE_SIZE, 0);
-							returnString = 0;
-						}
-					}
-					else {
-						send(client_socket[loop], "0", 1, 0);
-					}
+					returnString = processCommand(query);
+					send(client_socket[loop], returnString, strlen(returnString), 0);
+				} else
+				{
+					send(client_socket[loop], '0', 1, 0);
 				}
 				
 				printf("Closing socket\n ");

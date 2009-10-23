@@ -8,10 +8,10 @@ bool authenticate(char *name, char *pw)
   {
     if (!strcmp(u->pw, pw))
     {
-      return FALSE;
+      return TRUE;
     }
   }
-  return TRUE;
+  return FALSE;
 }
 
 bool load_users()
@@ -86,4 +86,58 @@ bool load_users()
   fclose(file);
   
   return 1;
+}
+
+
+bool strip_auth(char *buf)
+{
+	char username[20];
+	char password[20];
+	int length = strlen(buf);
+	int inText = FALSE;
+	char temp[length];
+	char current = (char)0x00;
+	int part = 0;
+	int index = 0;
+	buf[length+1] = '\r';
+	
+	for (int i = 0; i < length; i++) 
+	{
+		current = buf[i];
+		if (current == '\t' || current == '\n' || current == '\r') 
+		{
+			if (inText = TRUE)
+			{
+				//we've reached the end of either the pw or the u/n
+				switch (part) 
+				{
+					case 0:
+						strcpy(username, temp);
+						break;
+					case 1:
+						strcpy(password, temp);
+						break;
+					default:
+						break;
+				}
+				part++;
+				index = 0;
+				memset(temp, 0, length);
+				inText = FALSE;
+			}
+		} else 
+		{
+			temp[index++] = current;
+			inText = TRUE;
+		}
+	}
+	//TODO FIX
+	strcpy(password, temp);
+	
+	if ( (username == 0) || (password == 0))
+	{
+		return 0;
+	}
+	
+	return authenticate(username, password);
 }

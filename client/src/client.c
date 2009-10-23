@@ -45,7 +45,7 @@ void socket_connect() {
 void prompt(char *message, char *response, int size)
 {
 	printf("%s", message);
-  if(fgets(message, size, stdin) == NULL)
+  if(fgets(response, size, stdin) == NULL)
   {
     perror("fgets");
 		exit(1);
@@ -60,8 +60,8 @@ void auth_prompt()
 		char username[MAX_AUTH_SIZE];
 		char password[MAX_AUTH_SIZE];
 	
-		prompt("Username: ", username, MAX_AUTH_SIZE);
-		prompt("Password: ", password, MAX_AUTH_SIZE);
+		prompt("Username: ", username, sizeof(username));
+		prompt("Password: ", password, sizeof(password));
 	
 		snprintf(auth, MAX_AUTH_SIZE*2+1, "%s\r%s", username, password);
 	}

@@ -112,8 +112,12 @@ void lookup_player()
 
 	auth_prompt();
 
-	prompt("What player would you like to look up? ", player, MAX_MESSAGE_SIZE);
-  printf("Looking up '%s'\n", player);
+	prompt("What player would you like to look up? (or 'q' to Quit) ", player, MAX_MESSAGE_SIZE);
+  printf("\n");
+
+	if(strcmp("q", player) == 0) {
+		exit(0);
+	}
 
 	snprintf(message, size, "%s\t%s", auth, player);
 

@@ -1,9 +1,47 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <signal.h>
+#include <string.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <netdb.h>
+#include <unistd.h>
+
+#include "helpers.h"
 #include "client.h"
 
 struct sockaddr_in server;
 bool welcome_message_printed = FALSE;
 char auth[MAX_AUTH_SIZE + MAX_AUTH_SIZE + 1];
 int sock = -1;
+
+int main()
+{
+  while(1) 
+  {
+		socket_start();
+		
+		if(sock >= 0)
+	  {
+			print_welcome_message();
+			if(authenticated()) {
+				lookup_player(socket);
+			} else {
+				puts("Incorrect authentication details!");
+				return 1;
+			}
+		
+      close(sock);
+			sock = -1;
+	  } else {
+			perror("socket_start");
+			return 1;
+		}
+	}
+	
+	return 0;
+}
 
 void socket_start()
 {
@@ -13,7 +51,7 @@ void socket_start()
     if ((hp = gethostbyname(HOST)) == 0)
     {
       perror("get host name");
-      exit(1);
+			exit(1);
     }
 
     debug("Got hostname.");
@@ -32,6 +70,8 @@ void socket_start()
       perror("socket");
       exit(1);
     }
+
+		socket_connect();
 }
 
 void socket_connect() {
@@ -45,12 +85,13 @@ void socket_connect() {
 void prompt(char *message, char *response, int size)
 {
 	printf("%s", message);
+	
   if(fgets(response, size, stdin) == NULL)
   {
     perror("fgets");
 		exit(1);
   }
-  chomp(message);
+  chomp(response);
 }
 
 void auth_prompt()
@@ -63,7 +104,9 @@ void auth_prompt()
 		prompt("Username: ", username, sizeof(username));
 		prompt("Password: ", password, sizeof(password));
 	
-		snprintf(auth, MAX_AUTH_SIZE*2+1, "%s\r%s", username, password);
+		snprintf(auth, MAX_AUTH_SIZE*2+1, "%s\t%s", username, password);
+		
+		printf("\n|%s|\n", auth);
 	}
 }
 
@@ -72,6 +115,7 @@ bool authenticated()
 	auth_prompt(auth);
 
 	char response[MAX_MESSAGE_SIZE];
+	memset(response, 0, MAX_MESSAGE_SIZE);
 	
 	if(send_message(auth))	
 	{
@@ -101,31 +145,6 @@ void lookup_player()
   }
 }
 
-void communicate()
-{
-	socket_start();
-	
-	if(sock >= 0)
-  {
-	  while(1) 
-	  {
-			socket_connect();
-			print_welcome_message();
-			if(authenticated()) {
-				lookup_player(socket);
-			} else {
-				printf("Incorrect authentication details!\n");
-				return;
-			}
-			
-      close(socket);
-		}
-  } else {
-		perror("socket_start");
-		return;
-	}
-}
-
 void print_welcome_message() 
 {
 	char welcome[MAX_MESSAGE_SIZE];
@@ -138,11 +157,7 @@ void print_welcome_message()
 	}
 }
 
-int main()
-{
-	communicate();
-  return 0;
-}
+
 
 int send_message(char *msg)
 {

@@ -49,7 +49,7 @@ bool load_users()
       for (index = 0; index < length; index++) {
         current = input[index];
         //check whitespaces
-        if (current == ' ' || current == '\t' || current == '\n' || current == 'r') {
+        if (current == ' ' || current == '\t' || current == '\n' || current == '\r') {
           
           if (inText == TRUE)
           {
